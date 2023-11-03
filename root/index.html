@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <title>TasmoShell V0.1</title>
+  <meta name="viewport" 
+        content="width=device-width, initial-scale=1, user-scalable=no">
+
+  <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="csslib/jquery-ui.css">
+  <script src="jslib/jquery.min.js"></script>
+  <script src="jslib/jquery-ui.min.js"></script>
+  <script src="jslib/underscore-min.js"></script>
+  <script>Josh = {Debug: true };</script>
+  <script src="js/killring.js"></script>
+  <script src="js/history.js"></script>
+  <script src="js/readline.js"></script>
+  <script src="js/shell.js"></script>
+  <script src="js/pathhandler.js"></script>
+  <script src="js/rcmd.js"></script>
+  <script src="js/tasmoMain.js"></script>
+  <link href="css/style.css" rel='stylesheet' type='text/css'>
+  <style type="text/css">
+    #shell-panel {
+      width: 100%;
+      background-color: #002f05;
+      color: #00fe00;
+      font-family: 'Source Code Pro';
+      xfont-family: Term;
+      overflow: scroll;
+      overflow-x: hidden;
+      overflow-y: scroll;
+    }
+
+    #shell-cli .prompt {
+      font-weight: bold;
+    }</style>
+</head>
+<script language="JavaScript">
+
+function resizeLayout(){
+  console.log("parent:");
+  console.log($('#shell-panel').parent()[0]);
+  var pdiv=$('#shell-panel').parent()[0];
+
+
+  var cH=$(window).height();
+  var consH=$('#shell-panel').height();
+  $('#workspace').height(cH-consH);
+}
+
+$(window).on('resize',function(e){
+   resizeLayout();
+});
+$(document).on('ready',function(e){
+   resizeLayout();
+});
+
+</script>
+<body style="margin:0;padding:0">
+<div style="margin:0px">
+<div id="workspace">
+Test
+</div>
+<div id="shell-panel" style="height:200px" tabindex="0">
+  <div style="padding:5px">
+      Type <code>help</code> for a list of commands.
+  </div>
+  <div id="shell-view" style="margin:5px"></div>
+</div>
+</div>
+</body>
+</html>
